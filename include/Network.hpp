@@ -37,6 +37,11 @@ class Network {
 			}
 			free(layers);
 		};
+
+
+		void forward() {
+
+		}
 };
 
 

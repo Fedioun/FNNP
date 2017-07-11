@@ -2,7 +2,7 @@
 #define NEURON
 
 #include <cstdlib>
-
+#include "ActivationFunctions.hpp"
 
 
 class Neuron {
@@ -33,6 +33,9 @@ class Neuron {
 			free(weights);
 		};
 
+		/***
+		 * 
+		 */
 		void connect(Neuron ** inputLayer, int size) {
 			this->inputSize = inputSize;
 			this->inputs = 		(Neuron**)malloc(inputSize * sizeof(Neuron*));
