@@ -12,7 +12,7 @@ double sigmoid(double input) {
 
 
 activFun get_activation_fun(int id) {
-	return (*sigmoid);	
+	return (*sigmoid);
 }
 
 

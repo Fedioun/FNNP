@@ -7,9 +7,11 @@
 
 class Network {
 	private :
+		
+	public:
+
 		Layer ** layers = NULL;
 		int size;
-	public:
 
 
 		Network(int * input, int size) {
