@@ -8,6 +8,9 @@
 
 class Neuron {
 	private :
+		int networkId = 	-1;
+		int layerId = 		-1;
+		int neuronId = 	-1;
 
 	public:
 		Neuron ** inputs = NULL;
@@ -38,7 +41,7 @@ class Neuron {
 
 		~Neuron() {
 			#ifndef NDEBUG
-				std::cout  << "Neuronne détruit" << std::endl;
+				//std::cout  << "Neuronne détruit" << std::endl;
 			#endif
 			free(inputs);
 			free(weights);
@@ -64,7 +67,12 @@ class Neuron {
 			}
 		}
 
-		void compute() {
+		/***
+		 * Compute the output of the neuron, access the input neurons to get their _activation,
+		 * store the value into _activation
+		 */
+		void compute_forward() {
+			// The current aggregating function is the sum
 			double inputSum = 0;
 
 			for(int i = 0; i < inputSize; i++) {
@@ -73,7 +81,7 @@ class Neuron {
 
 			this->activation = activationFunction(inputSum);
 
-			std::cout << " Activation = " << this->activation << std::endl ;
+			//std::cout << " Activation = " << this->activation << std::endl ;
 
 
 
