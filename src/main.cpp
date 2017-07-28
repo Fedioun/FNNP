@@ -20,9 +20,9 @@ int main() {
 
 
 
-	int params[] = {3,0, 2,0};
+	int params[] = {3,0, 2,0, 2 ,0 , 2, 0};
 
-	Network * nn = new Network(params, 2);
+	Network * nn = new Network(params, 4);
 
 	nn->compute_forward();
 
@@ -49,23 +49,6 @@ int main() {
 	std::cout << std::endl;
 
 	*/
-
-	std::vector<double> data = {1., 2., 3., 4., 5., 6.};
-
-    // Define random generator with Gaussian distribution
-    const double mean = 0.0;
-    const double stddev = 0.1;
-    std::default_random_engine generator;
-    std::normal_distribution<double> dist(mean, stddev);
-
-    // Add Gaussian noise
-    for (auto& x : data) {
-        x = x + RandomGenerator::get_gaussian_noise(0.,1.);
-    }
-
-    // Output the result, for demonstration purposes
-    std::copy(begin(data), end(data), std::ostream_iterator<double>(std::cout, " "));
-    std::cout << "\n";
 
 	return 1;
 }

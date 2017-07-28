@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "ActivationFunctions.hpp"
+#include "Random.hpp"
 
 
 class Neuron {
@@ -24,14 +25,18 @@ class Neuron {
 	
 
 		Neuron(int functionId) {
+			this->activation = RandomGenerator::get_gaussian_noise(0.0,0.5);
 			this->functionId = functionId;
 			this->activationFunction = get_activation_fun(functionId);
 		};
 
 		Neuron(int inputSize, int functionId) {
-			this->inputSize = inputSize;
+			
+
 			this->functionId = functionId;
 			this->activationFunction = get_activation_fun(functionId);
+
+			this->inputSize = inputSize;
 			this->inputs = 		(Neuron**)malloc(inputSize * sizeof(Neuron*));
 			this->weights =  	 (double*)malloc(inputSize * sizeof(double));
 
@@ -61,9 +66,7 @@ class Neuron {
 			this->weights =  	 (double*)malloc(inputSize * sizeof(double));
 			for (int i = 0; i < inputSize ; i++) {
 				this->inputs[i] = inputLayer[i];
-
-				// TO DO : Better weight initialisation
-				this->weights[i] = 0.4;
+				this->weights[i] = RandomGenerator::get_gaussian_noise(0.0,0.5);
 			}
 		}
 
@@ -81,7 +84,7 @@ class Neuron {
 
 			this->activation = activationFunction(inputSum);
 
-			//std::cout << " Activation = " << this->activation << std::endl ;
+			std::cout << " Activation = " << this->activation << std::endl ;
 
 
 
